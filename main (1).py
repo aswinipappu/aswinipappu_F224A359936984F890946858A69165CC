@@ -1,30 +1,17 @@
-# 3.2 implement a function called sort students that takes a list of student objects as input and sorts the list based on their CGPA(Cumulative Grade Point Average) in descending order.each student object has the following attributes: name(string),roll number(string), and cgpa(float).test the function with different input lists of student
+# 1.2 write a program that determines whether a year entered by user is a leap year or not using ifelif-else statements
 
-class Student:
 
-  def __init__(self, name, roll_number, cgpa):
-    self.name = name
-    self.roll_number = roll_number
-    self.cgpa = cgpa
 
-def sort_students(student_lists):
-  #Sort the list of  students in descending order of CGPA
-  sorted_students = sorted(student_lists,
-                          key=lambda student: student.cgpa,
-                          reverse=True)
-  # Syntax - lambda arg:exp
-  return sorted_students
+def isleapyear(year):
+  if(year % 4 == 0 and year %100 !=0) or year %400 == 0:
+    return True
+  else:
+    return False
 
-#Example usage:
-students = [
-  Student("karthikeyan", "A40", 9.9),
-  Student("suriya", "A41", 7.5),
-  Student("vaithis", "A42", 8.5),
-  Student("veejay", "A43", 9.0),
-]
+year = int(input("Enter the year : "))
 
-sorted_students = sort_students(students)
+if isleapyear(year):
+  print('{} is a leap year.'.format(year))
+else:
+  print('{} is not a leap year.'.format(year))
 
-# print the sorted list of students
-for student in sorted_students:
-  print("Name: {}, Roll Number: {}, CGPA: {}".format(student.name, student.roll_number, student.cgpa))
